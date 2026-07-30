@@ -73,6 +73,11 @@ async function seed() {
 
           price: product.price,
 
+          // خصم عشوائي
+          discount: [0, 0, 0, 10, 15, 20][
+            Math.floor(Math.random() * 6)
+          ],
+
           stock: product.quantity,
 
           description: "",
@@ -80,6 +85,12 @@ async function seed() {
           brand: "",
 
           featured: false,
+
+          // حوالي 15% من المنتجات
+          isBestSeller: Math.random() < 0.15,
+
+          // حوالي 20% من المنتجات
+          isNewArrival: Math.random() < 0.2,
 
           active: true,
 
