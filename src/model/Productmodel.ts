@@ -1,4 +1,4 @@
-import  mongoose from "mongoose";
+import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema(
   {
@@ -33,6 +33,14 @@ const productSchema = new mongoose.Schema(
       min: 0,
     },
 
+    // نسبة الخصم %
+    discount: {
+      type: Number,
+      default: 0,
+      min: 0,
+      max: 100,
+    },
+
     stock: {
       type: Number,
       default: 0,
@@ -57,6 +65,16 @@ const productSchema = new mongoose.Schema(
       default: false,
     },
 
+    isBestSeller: {
+      type: Boolean,
+      default: false,
+    },
+
+    isNewArrival: {
+      type: Boolean,
+      default: false,
+    },
+
     active: {
       type: Boolean,
       default: true,
@@ -68,4 +86,5 @@ const productSchema = new mongoose.Schema(
 );
 
 const Product = mongoose.model("Product", productSchema);
-export default Product
+
+export default Product;
