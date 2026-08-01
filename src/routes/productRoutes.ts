@@ -10,8 +10,9 @@ import {
 
 const router = Router();
 
-// Get All Products + Search + Filter + Pagination
+// Get All Products
 router.get("/", getProducts);
+
 
 // Get Single Product
 router.get("/:slug", getProduct);
