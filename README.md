@@ -1,25 +1,39 @@
-# 🦷 Trendy API
+# 🦷 TalentDent API
 
-Backend API for Trendy Dental Store built with **Node.js**, **Express.js**, **TypeScript**, and **MongoDB**.
-
----
-
-## 🚀 Features
-
-- RESTful API
-- Products CRUD
-- Categories
-- Search Products
-- Pagination
-- MongoDB Database
-- Cloudinary Image Upload
-- Seed Database
-- Environment Variables
-- TypeScript Support
+A RESTful API built with **Node.js**, **Express**, **TypeScript**, **MongoDB**, and **Mongoose** for managing dental products and orders.
 
 ---
 
-## 🛠 Tech Stack
+## 🚀 Live Demo
+
+Base URL
+
+```
+https://talent-dent-api.vercel.app/api
+```
+
+---
+
+# ✨ Features
+
+- 📦 Products CRUD
+- 📂 Categories CRUD
+- 🛒 Orders CRUD
+- 🔍 Search Products
+- 📄 Pagination
+- 🎯 Filter by Category
+- 💰 Filter by Price Range
+- ⭐ Featured Products
+- 🔥 Best Seller Products
+- 🆕 New Arrival Products
+- ↕️ Sorting
+- ☁️ Cloudinary Image Hosting
+- 🌐 RESTful API
+- 📱 Frontend Ready
+
+---
+
+# 🛠 Tech Stack
 
 - Node.js
 - Express.js
@@ -32,49 +46,13 @@ Backend API for Trendy Dental Store built with **Node.js**, **Express.js**, **Ty
 
 ---
 
-## 📂 Project Structure
-
-```
-src
-│
-├── config
-│   ├── db.ts
-│   └── cloudinary.ts
-│
-├── controllers
-│
-├── model
-│
-├── routes
-│
-├── seed
-│
-├── services
-│
-├── utils
-│
-└── server.ts
-```
-
----
-
-## ⚙️ Installation
-
-Clone the project
+# 📦 Installation
 
 ```bash
-git clone https://github.com/your-username/trendy-api.git
-```
+git clone https://github.com/abdelrhmanwageh33/TalentDentApi.git
 
-Go to project folder
+cd TalentDentApi
 
-```bash
-cd trendy-api
-```
-
-Install dependencies
-
-```bash
 npm install
 ```
 
@@ -83,11 +61,13 @@ Create a `.env` file
 ```env
 PORT=3000
 
-MONGO_URI=YOUR_MONGO_URI
+MONGO_URI=your_mongodb_uri
 
-CLOUDINARY_CLOUD_NAME=
-CLOUDINARY_API_KEY=
-CLOUDINARY_API_SECRET=
+CLOUDINARY_CLOUD_NAME=xxxxx
+
+CLOUDINARY_API_KEY=xxxxx
+
+CLOUDINARY_API_SECRET=xxxxx
 ```
 
 Run development server
@@ -96,78 +76,145 @@ Run development server
 npm run dev
 ```
 
----
-
-## 🌱 Seed Database
+Seed Database
 
 ```bash
 npx tsx src/seed/seedProducts.ts
 ```
 
-This command will:
-
-- Upload images to Cloudinary
-- Create Categories
-- Insert Products into MongoDB
-
 ---
 
-## 📌 API Endpoints
+# 📚 API Endpoints
 
-### Products
+## Products
 
 | Method | Endpoint | Description |
 |---------|----------|-------------|
-| GET | `/api/products` | Get all products |
-| GET | `/api/products/:id` | Get single product |
-| POST | `/api/products` | Create product |
-| PUT | `/api/products/:id` | Update product |
-| DELETE | `/api/products/:id` | Delete product |
+| GET | /products | Get all products |
+| GET | /products/:slug | Get single product |
+| POST | /products | Create product |
+| PUT | /products/:id | Update product |
+| DELETE | /products/:id | Delete product |
 
 ---
 
-## 🔍 Query Parameters
+## Categories
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | /categories | Get all categories |
+| GET | /categories/:slug | Get category |
+| POST | /categories | Create category |
+| PUT | /categories/:id | Update category |
+| DELETE | /categories/:id | Delete category |
+
+---
+
+## Orders
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| POST | /orders | Create order |
+| GET | /orders | Get all orders |
+| GET | /orders/:id | Get single order |
+| PATCH | /orders/:id | Update order status |
+| DELETE | /orders/:id | Delete order |
+
+---
+
+# 🔍 Query Parameters
 
 ### Search
 
 ```
-GET /api/products?search=composite
+GET /products?keyword=meta
 ```
 
 ### Pagination
 
 ```
-GET /api/products?page=1&limit=10
+GET /products?page=2&limit=8
 ```
 
-### Search + Pagination
+### Category
 
 ```
-GET /api/products?search=meta&page=2&limit=5
+GET /products?category=bond
+```
+
+### Price Range
+
+```
+GET /products?minPrice=100&maxPrice=500
+```
+
+### Featured
+
+```
+GET /products?featured=true
+```
+
+### Best Seller
+
+```
+GET /products?isBestSeller=true
+```
+
+### New Arrival
+
+```
+GET /products?isNewArrival=true
+```
+
+### Sorting
+
+```
+GET /products?sort=price
+```
+
+```
+GET /products?sort=-price
+```
+
+```
+GET /products?sort=name
+```
+
+```
+GET /products?sort=newest
 ```
 
 ---
 
-## 📦 Response Example
+# 📁 Project Structure
 
-```json
-{
-  "success": true,
-  "products": [],
-  "page": 1,
-  "totalPages": 5,
-  "totalProducts": 142
-}
+```
+src
+│
+├── config
+├── controllers
+├── model
+├── routes
+├── seed
+├── interfaces
+├── utils
+└── app.ts
 ```
 
 ---
 
-## 📸 Images
+# 👨‍💻 Author
 
-Product images are stored on **Cloudinary** and only the image URL is saved in MongoDB.
+**Abdelrhman Wageh**
+
+GitHub
+
+https://github.com/abdelrhmanwageh33
+
+LinkedIn
+
+https://www.linkedin.com/in/abdelrhman-wageh/
 
 ---
 
-## 👨‍💻 Author
-
-Abdelrhman
+## ⭐ If you like this project, don't forget to give it a Star!
