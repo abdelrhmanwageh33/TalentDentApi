@@ -1,4 +1,4 @@
-import mongoose, { InferSchemaType, model, Schema } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const CartSchema = new mongoose.Schema(
   {
@@ -21,13 +21,26 @@ const CartSchema = new mongoose.Schema(
           default: 1,
           min: 1,
         },
+
+        price: {
+          type: Number,
+          required: true,
+          min: 0,
+        },
       },
     ],
+
+    totalPrice: {
+      type: Number,
+      default: 0,
+      min: 0,
+    },
   },
   {
     timestamps: true,
   }
 );
 
-const Cart=mongoose.model("Cart", CartSchema);
-export default Cart
+const Cart = mongoose.model("Cart", CartSchema);
+
+export default Cart;
