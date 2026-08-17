@@ -1,4 +1,4 @@
-import mongoose, { InferSchemaType, model, Schema } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const OrderSchema = new mongoose.Schema(
   {
@@ -12,21 +12,25 @@ const OrderSchema = new mongoose.Schema(
       name: {
         type: String,
         required: true,
+        trim: true,
       },
 
       phone: {
         type: String,
         required: true,
+        trim: true,
       },
 
       address: {
         type: String,
         required: true,
+        trim: true,
       },
 
       notes: {
         type: String,
         default: "",
+        trim: true,
       },
     },
 
@@ -35,21 +39,37 @@ const OrderSchema = new mongoose.Schema(
         product: {
           type: Schema.Types.ObjectId,
           ref: "Product",
+          required: true,
         },
 
-        name: String,
+        name: {
+          type: String,
+          required: true,
+        },
 
-        image: String,
+        image: {
+          type: String,
+          required: true,
+        },
 
-        price: Number,
+        price: {
+          type: Number,
+          required: true,
+          min: 0,
+        },
 
-        quantity: Number,
+        quantity: {
+          type: Number,
+          required: true,
+          min: 1,
+        },
       },
     ],
 
     totalPrice: {
       type: Number,
       required: true,
+      min: 0,
     },
 
     status: {
@@ -70,5 +90,6 @@ const OrderSchema = new mongoose.Schema(
   }
 );
 
-const Order= mongoose.model("Order", OrderSchema);
-export default Order
+const Order = mongoose.model("Order", OrderSchema);
+
+export default Order;
