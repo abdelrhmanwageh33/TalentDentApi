@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3000;
 
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://talent-dent-ecommerce-pu9d.vercel.app/",
+  "https://talent-dent-ecommerce-pu9d.vercel.app",
 ];
 
 app.use(
