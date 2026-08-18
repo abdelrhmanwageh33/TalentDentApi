@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import mongoose from "mongoose";
 
 import Product from "../model/Productmodel.js";
-import Order from "../model/Ordermodel.js";
+import Order from "../model/ordermodel.js";
 
 // =====================================================
 // Create Order
