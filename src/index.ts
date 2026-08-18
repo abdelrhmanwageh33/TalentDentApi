@@ -11,10 +11,15 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-// Middlewares
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://talent-dent-ecommerce-pu9d-4gmpc742c-abdelrhman-wagehs-projects.vercel.app",
+];
+
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: allowedOrigins,
+    credentials: true,
   })
 );
 
